@@ -1,6 +1,7 @@
 import { areas } from '../data/areas'
 import { AreaCard } from '../components/AreaCard'
 import { HeroVideoBackground } from '../components/HeroVideoBackground'
+import { QuoteCarousel } from '../components/QuoteCarousel'
 
 const heroVideos = ['/videos/hero-1.mp4']
 
@@ -18,6 +19,8 @@ export function Home() {
           </p>
         </div>
       </section>
+
+      <QuoteCarousel />
 
       <section id="projetos" className="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
