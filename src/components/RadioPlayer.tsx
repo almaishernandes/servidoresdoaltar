@@ -4,13 +4,14 @@ import { tracks } from '../data/radio'
 export function RadioPlayer() {
   const [index, setIndex] = useState(0)
   const [playing, setPlaying] = useState(false)
+  const wantPlayRef = useRef(false)
   const audioRef = useRef<HTMLAudioElement>(null)
 
   useEffect(() => {
     const audio = audioRef.current
     if (!audio) return
     audio.load()
-    if (playing) audio.play().catch(() => setPlaying(false))
+    if (wantPlayRef.current) audio.play().catch(() => {})
   }, [index])
 
   function togglePlay() {
@@ -18,28 +19,39 @@ export function RadioPlayer() {
     if (!audio) return
     if (playing) {
       audio.pause()
-      setPlaying(false)
     } else {
+      wantPlayRef.current = true
       audio.play().catch(() => {})
-      setPlaying(true)
     }
   }
 
   function next() {
+    wantPlayRef.current = true
     setIndex((prev) => (prev + 1) % tracks.length)
-    setPlaying(true)
   }
 
   function prev() {
+    wantPlayRef.current = true
     setIndex((prev) => (prev - 1 + tracks.length) % tracks.length)
-    setPlaying(true)
   }
 
   if (tracks.length === 0) return null
 
   return (
     <div className="flex items-center gap-2 bg-white/10 rounded-full pl-1 pr-3 py-1 text-white">
-      <audio ref={audioRef} src={tracks[index].url} onEnded={next} />
+      <audio
+        ref={audioRef}
+        src={tracks[index].url}
+        onEnded={next}
+        onPlay={() => {
+          wantPlayRef.current = true
+          setPlaying(true)
+        }}
+        onPause={() => {
+          wantPlayRef.current = false
+          setPlaying(false)
+        }}
+      />
       <button
         onClick={prev}
         aria-label="Faixa anterior"
