@@ -8,9 +8,9 @@ function driveStreamUrl(fileId: string) {
 }
 
 export const tracks: Track[] = [
-  { title: 'Faixa 1', url: driveStreamUrl('1JBlGj8qG_VKxXZkf3k2XtsD61yExdP-o') },
-  { title: 'Faixa 2', url: driveStreamUrl('1CycglnVV4mJiUPmz1ncGM5yBY9tizBlp') },
-  { title: 'Faixa 3', url: driveStreamUrl('1oVbOOmXGW-TMEgOwJlfT6zqbXCogEImu') },
-  { title: 'Faixa 4', url: driveStreamUrl('1SYgy-f4upEvZav13wWjC7aprMnQAw5Fx') },
-  { title: 'Faixa 5', url: driveStreamUrl('1RPV_JwbYxcqJnKLNSk82Bo1dwPePXDuL') },
+  { title: 'Santo, Santo, Santo (Mons. Marco Frisina)', url: driveStreamUrl('1JBlGj8qG_VKxXZkf3k2XtsD61yExdP-o') },
+  { title: 'Alma de Cristo (Mons. Marco Frisina)', url: driveStreamUrl('1CycglnVV4mJiUPmz1ncGM5yBY9tizBlp') },
+  { title: "Allegri — Miserere mei (King's College, Cambridge)", url: driveStreamUrl('1oVbOOmXGW-TMEgOwJlfT6zqbXCogEImu') },
+  { title: 'Pai Nosso (Canto Gregoriano)', url: driveStreamUrl('1SYgy-f4upEvZav13wWjC7aprMnQAw5Fx') },
+  { title: 'Senhor que Viestes Salvar — Ato Penitencial', url: driveStreamUrl('1RPV_JwbYxcqJnKLNSk82Bo1dwPePXDuL') },
 ]
