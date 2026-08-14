@@ -1,5 +1,5 @@
 import { areas } from '../data/areas'
-import { AreaCard } from '../components/AreaCard'
+import { AreaStrip } from '../components/AreaStrip'
 import { HeroVideoBackground } from '../components/HeroVideoBackground'
 import { QuoteCarousel } from '../components/QuoteCarousel'
 
@@ -22,12 +22,14 @@ export function Home() {
 
       <QuoteCarousel />
 
-      <section id="projetos" className="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {areas.map((area) => (
-            <AreaCard key={area.slug} area={area} />
-          ))}
-        </div>
+      <section id="projetos">
+        {areas.map((area, i) => (
+          <AreaStrip
+            key={area.slug}
+            area={area}
+            nextColor={areas[i + 1]?.cor ?? '#2b0d14'}
+          />
+        ))}
       </section>
     </div>
   )
