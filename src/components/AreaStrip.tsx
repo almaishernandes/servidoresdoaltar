@@ -1,13 +1,11 @@
 import { Link } from 'react-router-dom'
 import type { Area } from '../data/areas'
 
-export function AreaStrip({ area, nextColor }: { area: Area; nextColor: string }) {
+export function AreaStrip({ area }: { area: Area }) {
   const content = (
     <div
-      className="group relative flex items-center justify-center text-center text-white px-4 sm:px-6 py-14 sm:py-20 overflow-hidden"
-      style={{
-        background: `linear-gradient(180deg, ${area.cor} 0%, ${nextColor} 100%)`,
-      }}
+      className="group relative flex items-center justify-center text-center text-white px-4 sm:px-6 py-14 sm:py-20 min-h-[280px] overflow-hidden"
+      style={{ backgroundColor: area.cor }}
     >
       <div className="relative max-w-2xl">
         <div className="flex items-center justify-center gap-3 mb-3">

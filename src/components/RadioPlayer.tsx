@@ -38,7 +38,11 @@ export function RadioPlayer() {
   if (tracks.length === 0) return null
 
   return (
-    <div className="flex items-center gap-2 bg-white/10 rounded-full pl-1 pr-3 py-1 text-white">
+    <div className="flex items-center gap-2">
+      <span className="hidden md:inline text-xs text-amber-100 whitespace-nowrap">
+        Clique no Play para ouvir a Rádio
+      </span>
+      <div className="flex items-center gap-2 bg-white/10 rounded-full pl-1 pr-3 py-1 text-white">
       <audio
         ref={audioRef}
         src={tracks[index].url}
@@ -76,6 +80,7 @@ export function RadioPlayer() {
       <span className="hidden sm:inline text-xs text-amber-100 max-w-[9rem] truncate">
         📻 {tracks[index].title}
       </span>
+      </div>
     </div>
   )
 }
