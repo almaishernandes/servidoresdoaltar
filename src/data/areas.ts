@@ -69,4 +69,15 @@ export const areas: Area[] = [
       'Um espaço para conectar grupos de Servidores do Altar de diferentes paróquias, compartilhar experiências, boas práticas de escala e eventos de formação regional.',
     status: 'em-breve',
   },
+  {
+    slug: 'eventos-igreja-catolica',
+    titulo: 'Eventos da Igreja Católica no Mundo',
+    resumo: 'Agenda de eventos, jornadas e celebrações católicas ao redor do mundo.',
+    icone: '🌍',
+    cor: '#0f4c81',
+    modelos: [],
+    descricao:
+      'Um calendário com os principais eventos da Igreja Católica ao redor do mundo — jornadas mundiais da juventude, congressos eucarísticos, peregrinações e celebrações papais — para os Servidores do Altar acompanharem e se planejarem.',
+    status: 'em-breve',
+  },
 ]
