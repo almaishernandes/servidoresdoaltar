@@ -30,4 +30,10 @@ export const diocesesProximas: LinkExterno[] = [
     url: 'https://diocesedeourinhos.com.br/',
     icone: '⛪',
   },
+  {
+    nome: 'Diocese de Araçatuba',
+    descricao: 'Diocese vizinha, região de Marília (SP).',
+    url: 'https://diocesedearacatuba.com.br/',
+    icone: '⛪',
+  },
 ]
