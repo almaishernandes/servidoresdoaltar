@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
+import { NewsSection } from '../components/NewsSection'
 import { fontesOficiais } from '../data/fontesOficiais'
-import { destaques } from '../data/newsletterDestaques'
 
 export function EventosIgrejaCatolica() {
   return (
@@ -13,45 +13,62 @@ export function EventosIgrejaCatolica() {
           Eventos da Igreja Católica no Mundo
         </h1>
         <p className="max-w-xl mx-auto text-blue-100">
-          Newsletter com novidades de liturgia, eventos, música e shows católicos — jornadas,
-          congressos eucarísticos, peregrinações e celebrações ao redor do mundo.
+          Notícias reais, ao vivo, direto dos canais oficiais católicos — liturgia, eventos,
+          música, vida dos santos e a palavra de bispos e padres.
         </p>
       </section>
 
       <section className="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-        <h2 className="text-xl font-bold text-[#0f4c81] mb-4">Fontes oficiais</h2>
-        <p className="text-gray-600 mb-6">
-          Acompanhe direto nos canais oficiais — sempre atualizados por eles mesmos:
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
-          {fontesOficiais.map((fonte) => (
-            <a
-              key={fonte.nome}
-              href={fonte.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-start gap-3 rounded-xl border border-[#0f4c81]/20 p-4 hover:shadow-md transition-shadow"
-            >
-              <span className="text-2xl">{fonte.icone}</span>
-              <div>
-                <h3 className="font-semibold text-[#0f4c81]">{fonte.nome}</h3>
-                <p className="text-sm text-gray-600">{fonte.descricao}</p>
-              </div>
-            </a>
-          ))}
-        </div>
+        <NewsSection
+          titulo="Liturgia, eventos e a palavra de bispos e do Papa"
+          fonte="Vatican News"
+          rssUrl="https://www.vaticannews.va/pt.rss.xml"
+        />
 
-        <h2 className="text-xl font-bold text-[#0f4c81] mb-4">Destaques</h2>
-        <div className="space-y-4">
-          {destaques.map((item, i) => (
-            <div key={i} className="rounded-xl bg-[#f3e9db] p-5">
-              <p className="text-xs text-gray-500 mb-1">
-                {new Date(item.data).toLocaleDateString('pt-BR')}
-              </p>
-              <h3 className="font-semibold text-[#0f4c81] mb-1">{item.titulo}</h3>
-              <p className="text-sm text-gray-700">{item.resumo}</p>
-            </div>
-          ))}
+        <NewsSection
+          titulo="Notícias, eventos e a Igreja no Brasil"
+          fonte="CNBB"
+          rssUrl="https://www.cnbb.org.br/feed/"
+        />
+
+        <NewsSection
+          titulo="Música, shows e cultura católica"
+          fonte="Canção Nova"
+          rssUrl="https://noticias.cancaonova.com/feed/"
+        />
+
+        <NewsSection
+          titulo="Vida dos santos da Igreja Católica"
+          fonte="Canção Nova — Santo do Dia"
+          rssUrl="https://santo.cancaonova.com/feed/"
+        />
+
+        <NewsSection
+          titulo="Cursos, palestras, podcasts e testemunhos de leigos"
+          fonte="Aleteia"
+          rssUrl="https://pt.aleteia.org/feed/"
+        />
+
+        <div className="mt-10 pt-6 border-t border-[#0f4c81]/15">
+          <p className="text-xs text-gray-400 mb-3">
+            Não existe uma fonte nacional que agregue notícias específicas de coroinhas e
+            acólitos de cada paróquia — esse conteúdo costuma ficar só nas redes sociais de
+            cada grupo. Se você tiver contas ou grupos que queira que a gente acompanhe aqui,
+            é só pedir para adicionar.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            {fontesOficiais.map((fonte) => (
+              <a
+                key={fonte.nome}
+                href={fonte.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-[#0f4c81] hover:underline"
+              >
+                {fonte.icone} {fonte.nome}
+              </a>
+            ))}
+          </div>
         </div>
       </section>
     </div>
