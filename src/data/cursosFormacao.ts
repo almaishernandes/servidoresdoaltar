@@ -14,8 +14,21 @@ export const cursosFormacao: LinkExterno[] = [
   },
   {
     nome: 'Instituto Canção Nova',
-    descricao: 'Artigos e orientações sobre funções litúrgicas, espiritualidade e ministérios.',
+    descricao:
+      'Cursos e formações para catequistas e leigos — metodologia, vocação e a missão do Ministério da Catequese.',
     url: 'https://instituto.cancaonova.com/',
+    icone: '🎓',
+  },
+  {
+    nome: 'Portal Catequisar',
+    descricao: 'Apostilas, manuais e materiais de apoio gratuitos para formação dos pequenos levitas.',
+    url: 'https://catequisar.com.br/',
+    icone: '📄',
+  },
+  {
+    nome: 'Escola da Fé',
+    descricao: 'Curso estruturado com videoaulas sobre vocação, estatuto e atuação do coroinha na missa e sacramentos.',
+    url: 'https://escoladafe.com.br/',
     icone: '🎓',
   },
   {
