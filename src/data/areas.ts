@@ -71,13 +71,13 @@ export const areas: Area[] = [
   },
   {
     slug: 'eventos-igreja-catolica',
-    titulo: 'Eventos da Igreja Católica no Mundo',
-    resumo: 'Agenda de eventos, jornadas e celebrações católicas ao redor do mundo.',
+    titulo: 'A Igreja Católica',
+    resumo: 'Notícias, liturgia diária, rádios, TVs e cursos de formação católica.',
     icone: '🌍',
     cor: '#0f4c81',
     modelos: [],
     descricao:
-      'Um calendário com os principais eventos da Igreja Católica ao redor do mundo — jornadas mundiais da juventude, congressos eucarísticos, peregrinações e celebrações papais — para os Servidores do Altar acompanharem e se planejarem.',
-    status: 'em-breve',
+      'Acompanhe as principais decisões do Vaticano, as celebrações das paróquias locais e as ações sociais da Igreja Católica. Um espaço dedicado à fé, à oração e ao fortalecimento da comunidade cristã no dia a dia.',
+    status: 'ativo',
   },
 ]

@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
 import { NewsSection } from '../components/NewsSection'
+import { LinkListSection } from '../components/LinkListSection'
 import { fontesOficiais } from '../data/fontesOficiais'
+import { radiosTv } from '../data/radiosTv'
+import { cursosFormacao } from '../data/cursosFormacao'
 
 export function EventosIgrejaCatolica() {
   return (
@@ -9,16 +12,22 @@ export function EventosIgrejaCatolica() {
         <Link to="/#projetos" className="text-sm text-blue-100 hover:text-white">
           ← Todos os projetos
         </Link>
-        <h1 className="text-2xl sm:text-4xl font-bold mt-4 mb-3">
-          Eventos da Igreja Católica no Mundo
-        </h1>
-        <p className="max-w-xl mx-auto text-blue-100">
-          Notícias reais, ao vivo, direto dos canais oficiais católicos — liturgia, eventos,
-          música, vida dos santos e a palavra de bispos e padres.
+        <h1 className="text-2xl sm:text-4xl font-bold mt-4 mb-3">A Igreja Católica</h1>
+        <p className="max-w-2xl mx-auto text-blue-100">
+          Acompanhe as principais decisões do Vaticano, as celebrações das paróquias locais e as
+          ações sociais da Igreja Católica. Um espaço dedicado à fé, à oração e ao fortalecimento
+          da comunidade cristã no dia a dia. Confira as reflexões do Evangelho e os eventos que
+          marcam a caminhada da nossa Igreja.
         </p>
       </section>
 
       <section className="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+        <NewsSection
+          titulo="Homilias e Evangelho do dia"
+          fonte="Evangelho do Dia"
+          rssUrl="https://www.evangelhododia.com/feed/"
+        />
+
         <NewsSection
           titulo="Liturgia, eventos e a palavra de bispos e do Papa"
           fonte="Vatican News"
@@ -48,6 +57,10 @@ export function EventosIgrejaCatolica() {
           fonte="Aleteia"
           rssUrl="https://pt.aleteia.org/feed/"
         />
+
+        <LinkListSection titulo="Rádios e TVs católicas" links={radiosTv} />
+
+        <LinkListSection titulo="Cursos e formação de leigos" links={cursosFormacao} />
 
         <div className="mt-10 pt-6 border-t border-[#0f4c81]/15">
           <p className="text-xs text-gray-400 mb-3">
