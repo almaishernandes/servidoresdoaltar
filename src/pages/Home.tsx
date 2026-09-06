@@ -9,13 +9,8 @@ export function Home() {
     <div>
       <ColorCycleBanner text="Zelus Domus Tuae Comedite Me" />
 
-      <section className="grid grid-cols-1 sm:grid-cols-2">
-        <div className="relative h-[26vh] sm:h-[38vh] overflow-hidden bg-[#5c1220]">
-          <YouTubeLoopBackground videoId="QU-llda4DYQ" />
-        </div>
-        <div className="relative h-[26vh] sm:h-[38vh] overflow-hidden bg-[#5c1220]">
-          <YouTubeLoopBackground videoId="uTBgvD-B3Q0" />
-        </div>
+      <section className="relative h-[45vh] sm:h-[60vh] overflow-hidden bg-[#5c1220]">
+        <YouTubeLoopBackground videoId="uTBgvD-B3Q0" />
       </section>
 
       <QuoteCarousel />
