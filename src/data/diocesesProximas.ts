@@ -36,4 +36,10 @@ export const diocesesProximas: LinkExterno[] = [
     url: 'https://diocesedearacatuba.com.br/',
     icone: '⛪',
   },
+  {
+    nome: 'Diocese de Presidente Prudente',
+    descricao: 'Diocese vizinha, região de Marília (SP).',
+    url: 'https://www.diocesepresidenteprudente.com.br/',
+    icone: '⛪',
+  },
 ]
