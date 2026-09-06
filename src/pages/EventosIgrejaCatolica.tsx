@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom'
 import { NewsSection } from '../components/NewsSection'
 import { LinkListSection } from '../components/LinkListSection'
+import { DestaquesIA } from '../components/DestaquesIA'
 import { fontesOficiais } from '../data/fontesOficiais'
 import { radiosTv } from '../data/radiosTv'
 import { cursosFormacao } from '../data/cursosFormacao'
+import { diocesesProximas } from '../data/diocesesProximas'
 
 export function EventosIgrejaCatolica() {
   return (
@@ -22,11 +24,22 @@ export function EventosIgrejaCatolica() {
       </section>
 
       <section className="max-w-3xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-        <NewsSection
-          titulo="Homilias e Evangelho do dia"
-          fonte="Evangelho do Dia"
-          rssUrl="https://www.evangelhododia.com/feed/"
-        />
+        <DestaquesIA />
+
+        <div className="mb-10 rounded-xl border border-[#0f4c81]/20 p-4 flex items-center justify-between gap-4 flex-wrap">
+          <div>
+            <h2 className="text-sm font-bold text-[#0f4c81]">Homilias e Evangelho do dia</h2>
+            <p className="text-xs text-gray-500">Liturgia diária sempre atualizada — CNBB</p>
+          </div>
+          <a
+            href="https://www.cnbb.org.br/liturgia-diaria/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-semibold text-white bg-[#0f4c81] px-4 py-2 rounded-lg hover:bg-[#0c3d68] transition-colors"
+          >
+            Ver de hoje →
+          </a>
+        </div>
 
         <NewsSection
           titulo="Liturgia, eventos e a palavra de bispos e do Papa"
@@ -62,12 +75,14 @@ export function EventosIgrejaCatolica() {
 
         <LinkListSection titulo="Cursos e formação de leigos" links={cursosFormacao} />
 
+        <LinkListSection titulo="Diocese de Marília e dioceses próximas" links={diocesesProximas} />
+
         <div className="mt-10 pt-6 border-t border-[#0f4c81]/15">
           <p className="text-xs text-gray-400 mb-3">
             Não existe uma fonte nacional que agregue notícias específicas de coroinhas e
             acólitos de cada paróquia — esse conteúdo costuma ficar só nas redes sociais de
-            cada grupo. Se você tiver contas ou grupos que queira que a gente acompanhe aqui,
-            é só pedir para adicionar.
+            cada grupo. Se você tiver contas, grupos ou paróquias específicas que queira que a
+            gente acompanhe aqui, é só pedir para adicionar.
           </p>
           <div className="flex flex-wrap gap-3">
             {fontesOficiais.map((fonte) => (
