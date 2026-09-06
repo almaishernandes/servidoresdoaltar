@@ -36,15 +36,15 @@ export const areas: Area[] = [
     status: 'ativo',
   },
   {
-    slug: 'blog',
-    titulo: 'Blog Servidores do Altar',
-    resumo: 'Conteúdos, guias e novidades para quem serve ao altar.',
-    icone: '📰',
+    slug: 'biblioteca',
+    titulo: 'Biblioteca do Altar',
+    resumo: 'Livros, guias e materiais de consulta para quem serve ao altar.',
+    icone: '📚',
     cor: '#1e5a4a',
     modelos: [],
     descricao:
-      'Artigos, guias práticos e novidades para coroinhas, acólitos, monitores, cerimoniários e coordenadores — incluindo o guia de uso do ZelusDomus e conteúdos de formação litúrgica.',
-    externalUrl: 'https://servidoresdoaltar.site/blog',
+      'Biblioteca de livros e guias para coroinhas, acólitos, monitores, cerimoniários e coordenadores — incluindo o guia de uso do ZelusDomus e futuros materiais de formação litúrgica.',
+    externalUrl: 'https://biblioteca.servidoresdoaltar.site',
     status: 'ativo',
   },
   {
