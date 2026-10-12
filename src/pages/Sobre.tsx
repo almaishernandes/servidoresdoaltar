@@ -9,7 +9,7 @@ export function Sobre() {
       </p>
       <p className="text-gray-700 leading-relaxed">
         Cada projeto é desenvolvido de forma independente, com seu próprio endereço e
-        identidade, mantendo o servidoresdoaltar.site como ponto central de acesso: do
+        identidade, mantendo o servidoresnoaltar.com.br como ponto central de acesso: do
         ZelusDomus, para gestão dos grupos, ao DSA, um desafio gamificado de formação
         litúrgica, passando pelo blog com conteúdos e guias.
       </p>

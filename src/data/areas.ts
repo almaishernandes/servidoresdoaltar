@@ -20,7 +20,7 @@ export const areas: Area[] = [
     modelos: [],
     descricao:
       'O ZelusDomus é a plataforma de gestão dos Servidores do Altar: cadastro de coroinhas, acólitos, monitores, cerimoniários e coordenadores, escalas de serviço, atas de reunião, livro caixa e formação — tudo em um só lugar.',
-    externalUrl: 'https://zelusdomus.servidoresdoaltar.site/',
+    externalUrl: 'https://zelusdomus.servidoresnoaltar.com.br/',
     status: 'ativo',
   },
   {
@@ -44,30 +44,20 @@ export const areas: Area[] = [
     modelos: [],
     descricao:
       'Biblioteca de livros e guias para coroinhas, acólitos, monitores, cerimoniários e coordenadores — incluindo o guia de uso do ZelusDomus e futuros materiais de formação litúrgica.',
-    externalUrl: 'https://biblioteca.servidoresdoaltar.site',
+    externalUrl: 'https://biblioteca.servidoresnoaltar.com.br',
     status: 'ativo',
   },
   {
-    slug: 'formacao-liturgica',
-    titulo: 'Formação Litúrgica',
-    resumo: 'Material de estudo sobre liturgia, ano litúrgico e ritos.',
-    icone: '📖',
-    cor: '#3a2f6b',
+    slug: 'altares',
+    titulo: 'Altares',
+    resumo: 'Streaming de música sacra, litúrgica e canto gregoriano.',
+    icone: '🎵',
+    cor: '#d97706',
     modelos: [],
     descricao:
-      'Uma área dedicada a materiais de formação sobre liturgia, ano litúrgico, vestes, objetos sacros e o papel de cada função no altar — complementando as trilhas de estudo do DSA.',
-    status: 'em-breve',
-  },
-  {
-    slug: 'comunidade',
-    titulo: 'Comunidade e Escalas',
-    resumo: 'Espaço de integração entre paróquias e grupos de servidores.',
-    icone: '🤝',
-    cor: '#a3272f',
-    modelos: [],
-    descricao:
-      'Um espaço para conectar grupos de Servidores do Altar de diferentes paróquias, compartilhar experiências, boas práticas de escala e eventos de formação regional.',
-    status: 'em-breve',
+      'Altares é a plataforma de streaming sob demanda dedicada à música sacra: antífonas, horas litúrgicas, polifonia sacra, missa tridentina e canto gregoriano — com player persistente, letras em latim e português, e playlists pessoais.',
+    externalUrl: 'https://altares.servidoresnoaltar.com.br',
+    status: 'ativo',
   },
   {
     slug: 'eventos-igreja-catolica',
