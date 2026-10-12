@@ -105,8 +105,8 @@ function ContentEditor() {
         basta recarregar servidoresnoaltar.com.br pra ver, sem precisar de deploy.
       </p>
 
-      <section className="mb-6 rounded-xl bg-amber-50 border border-amber-200 p-4 sm:p-5">
-        <h2 className="text-lg font-semibold text-amber-900 mb-3">Frase do topo (hero)</h2>
+      <section className="mb-6 rounded-xl bg-amber-500 p-4 sm:p-5 shadow-md">
+        <h2 className="text-lg font-bold text-white mb-3">Frase do topo (hero)</h2>
         <textarea
           className="w-full rounded-lg border border-gray-300 p-3 text-sm bg-white"
           rows={2}
@@ -115,9 +115,9 @@ function ContentEditor() {
         />
       </section>
 
-      <section className="mb-6 rounded-xl bg-rose-50 border border-rose-200 p-4 sm:p-5">
-        <h2 className="text-lg font-semibold text-rose-900 mb-3">Rodapé</h2>
-        <label className="block text-xs font-medium text-gray-500 mb-1">Frase institucional</label>
+      <section className="mb-6 rounded-xl bg-rose-700 p-4 sm:p-5 shadow-md">
+        <h2 className="text-lg font-bold text-white mb-3">Rodapé</h2>
+        <label className="block text-xs font-medium text-rose-100 mb-1">Frase institucional</label>
         <textarea
           className="w-full rounded-lg border border-gray-300 p-3 text-sm bg-white"
           rows={3}
@@ -126,15 +126,15 @@ function ContentEditor() {
         />
       </section>
 
-      <section className="mb-6 rounded-xl bg-sky-50 border border-sky-200 p-4 sm:p-5">
-        <h2 className="text-lg font-semibold text-sky-900 mb-3">Seção de vídeos (Cortes)</h2>
-        <label className="block text-xs font-medium text-gray-500 mb-1">Título</label>
+      <section className="mb-6 rounded-xl bg-sky-700 p-4 sm:p-5 shadow-md">
+        <h2 className="text-lg font-bold text-white mb-3">Seção de vídeos (Cortes)</h2>
+        <label className="block text-xs font-medium text-sky-100 mb-1">Título</label>
         <input
           className="w-full rounded-lg border border-gray-300 p-3 text-sm bg-white mb-4"
           value={content.reelsTitle}
           onChange={(e) => updateField('reelsTitle', e.target.value)}
         />
-        <label className="block text-xs font-medium text-gray-500 mb-1">Subtítulo</label>
+        <label className="block text-xs font-medium text-sky-100 mb-1">Subtítulo</label>
         <textarea
           className="w-full rounded-lg border border-gray-300 p-3 text-sm bg-white"
           rows={2}
@@ -143,9 +143,9 @@ function ContentEditor() {
         />
       </section>
 
-      <section className="mb-6 rounded-xl bg-emerald-50 border border-emerald-200 p-4 sm:p-5">
-        <h2 className="text-lg font-semibold text-emerald-900 mb-3">Vídeos dos cortes</h2>
-        <p className="text-xs text-gray-500 mb-4">
+      <section className="mb-6 rounded-xl bg-emerald-700 p-4 sm:p-5 shadow-md">
+        <h2 className="text-lg font-bold text-white mb-3">Vídeos dos cortes</h2>
+        <p className="text-xs text-emerald-100 mb-4">
           Cole o link do YouTube, YouTube Shorts, Vimeo, Instagram (post ou reel) ou um
           link/caminho direto de mp4 para cada corte. Cortes sem link não aparecem no site.
         </p>
@@ -220,8 +220,8 @@ function ContentEditor() {
         </button>
       </section>
 
-      <section className="mb-10 rounded-xl bg-violet-50 border border-violet-200 p-4 sm:p-5">
-        <h2 className="text-lg font-semibold text-violet-900 mb-3">Projetos (cards da home)</h2>
+      <section className="mb-10 rounded-xl bg-violet-700 p-4 sm:p-5 shadow-md">
+        <h2 className="text-lg font-bold text-white mb-3">Projetos (cards da home)</h2>
         <div className="flex flex-col gap-4">
           {areas.map((area) => {
             const override = content.areas[area.slug] ?? { titulo: area.titulo, resumo: area.resumo }
