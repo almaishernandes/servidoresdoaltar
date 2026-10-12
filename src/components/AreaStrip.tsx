@@ -5,7 +5,12 @@ export function AreaStrip({ area }: { area: Area }) {
   const content = (
     <div
       className="group relative flex items-center justify-center text-center text-white px-2 sm:px-3 py-4 sm:py-6 min-h-[110px] sm:min-h-[150px] overflow-hidden"
-      style={{ backgroundColor: area.cor }}
+      style={{
+        backgroundColor: area.cor,
+        backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65)), url(${area.imagem})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
     >
       <div className="relative max-w-2xl">
         <div className="flex items-center justify-center gap-1.5 mb-1.5">
