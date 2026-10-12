@@ -3,11 +3,20 @@ import { AreaStrip } from '../components/AreaStrip'
 import { YouTubeLoopBackground } from '../components/YouTubeLoopBackground'
 import { QuoteCarousel } from '../components/QuoteCarousel'
 import { ColorCycleBanner } from '../components/ColorCycleBanner'
+import { ReelsSection } from '../components/ReelsSection'
+import { useSiteContent } from '../hooks/useSiteContent'
 
 export function Home() {
+  const { content } = useSiteContent()
+
+  const areasComTexto = areas.map((area) => ({
+    ...area,
+    ...(content.areas[area.slug] ?? {}),
+  }))
+
   return (
     <div>
-      <ColorCycleBanner text="Zelus Domus Tuae Comedite Me" />
+      <ColorCycleBanner text={content.heroText} />
 
       <section className="relative h-[45vh] sm:h-[60vh] overflow-hidden bg-[#5c1220]">
         <YouTubeLoopBackground videoId="uTBgvD-B3Q0" />
@@ -15,11 +24,13 @@ export function Home() {
 
       <QuoteCarousel />
 
-      <section id="projetos" className="grid grid-cols-1 sm:grid-cols-2">
-        {areas.map((area) => (
+      <section id="projetos" className="grid grid-cols-2 sm:grid-cols-5">
+        {areasComTexto.map((area) => (
           <AreaStrip key={area.slug} area={area} />
         ))}
       </section>
+
+      <ReelsSection />
     </div>
   )
 }
