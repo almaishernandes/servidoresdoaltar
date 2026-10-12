@@ -3,6 +3,8 @@ import { reels as defaultReelsData, videoUrlFromReel, type ReelCategoria } from 
 export interface AreaTextOverride {
   titulo: string
   resumo: string
+  /** URL da imagem do card, enviada pelo admin (substitui a imagem padrão). */
+  imagem?: string
 }
 
 export interface ReelContent {
@@ -14,6 +16,8 @@ export interface ReelContent {
   cor: string
   /** Link colado pelo admin: YouTube, YouTube Shorts, Vimeo ou caminho/URL direto de mp4. */
   videoUrl: string
+  /** URL da imagem de capa do corte, enviada pelo admin. */
+  thumbnail?: string
 }
 
 export interface SiteContent {

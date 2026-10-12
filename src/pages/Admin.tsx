@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { supabase } from '../lib/supabase'
+import { uploadMedia } from '../lib/uploadMedia'
 import { useAdminSession, LoginForm } from '../components/AdminAuth'
 import { useSiteContent } from '../hooks/useSiteContent'
 import { areas } from '../data/areas'
@@ -23,6 +24,8 @@ export function Admin() {
 function ContentEditor() {
   const { content, loading, setContent } = useSiteContent()
   const [status, setStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle')
+  const [enviando, setEnviando] = useState<string | null>(null)
+  const [uploadError, setUploadError] = useState('')
 
   function updateField<K extends keyof SiteContent>(key: K, value: SiteContent[K]) {
     setContent((prev) => ({ ...prev, [key]: value }))
@@ -33,6 +36,24 @@ function ContentEditor() {
       ...prev,
       reels: prev.reels.map((r) => (r.id === id ? { ...r, [field]: value } : r)),
     }))
+  }
+
+  async function handleUpload(
+    campoId: string,
+    pasta: string,
+    file: File,
+    onDone: (url: string) => void
+  ) {
+    setEnviando(campoId)
+    setUploadError('')
+    try {
+      const url = await uploadMedia(file, pasta)
+      onDone(url)
+    } catch {
+      setUploadError('Não foi possível enviar o arquivo. Tente de novo.')
+    } finally {
+      setEnviando(null)
+    }
   }
 
   function addReel() {
@@ -57,7 +78,7 @@ function ContentEditor() {
     setContent((prev) => ({ ...prev, reels: prev.reels.filter((r) => r.id !== id) }))
   }
 
-  function updateArea(slug: string, field: 'titulo' | 'resumo', value: string) {
+  function updateArea(slug: string, field: 'titulo' | 'resumo' | 'imagem', value: string) {
     setContent((prev) => ({
       ...prev,
       areas: {
@@ -170,11 +191,61 @@ function ContentEditor() {
 
               <label className="block text-xs font-medium text-gray-500 mb-1">Link do vídeo</label>
               <input
-                className="w-full rounded-lg border border-gray-300 p-2 text-sm mb-3"
+                className="w-full rounded-lg border border-gray-300 p-2 text-sm mb-2"
                 placeholder="https://instagram.com/p/... ou youtube.com/shorts/... ou vimeo.com/... ou /videos/arquivo.mp4"
                 value={reel.videoUrl}
                 onChange={(e) => updateReel(reel.id, 'videoUrl', e.target.value)}
               />
+              <label className="block text-xs font-medium text-gray-500 mb-1">
+                ...ou envie o arquivo de vídeo direto daqui
+              </label>
+              <input
+                type="file"
+                accept="video/*"
+                disabled={enviando === `reel-video-${reel.id}`}
+                onChange={(e) => {
+                  const file = e.target.files?.[0]
+                  if (!file) return
+                  handleUpload(`reel-video-${reel.id}`, 'reels', file, (url) =>
+                    updateReel(reel.id, 'videoUrl', url)
+                  )
+                  e.target.value = ''
+                }}
+                className="w-full rounded-lg border border-gray-300 p-2 text-xs mb-3 bg-gray-50"
+              />
+              {enviando === `reel-video-${reel.id}` && (
+                <p className="text-xs text-sky-700 mb-3">Enviando vídeo…</p>
+              )}
+
+              <label className="block text-xs font-medium text-gray-500 mb-1">
+                Capa do corte (imagem, opcional)
+              </label>
+              <div className="flex items-center gap-3 mb-3">
+                {reel.thumbnail && (
+                  <img
+                    src={reel.thumbnail}
+                    alt=""
+                    className="h-14 w-10 object-cover rounded-md border border-gray-200 shrink-0"
+                  />
+                )}
+                <input
+                  type="file"
+                  accept="image/*"
+                  disabled={enviando === `reel-thumb-${reel.id}`}
+                  onChange={(e) => {
+                    const file = e.target.files?.[0]
+                    if (!file) return
+                    handleUpload(`reel-thumb-${reel.id}`, 'reels', file, (url) =>
+                      updateReel(reel.id, 'thumbnail', url)
+                    )
+                    e.target.value = ''
+                  }}
+                  className="w-full rounded-lg border border-gray-300 p-2 text-xs bg-gray-50"
+                />
+              </div>
+              {enviando === `reel-thumb-${reel.id}` && (
+                <p className="text-xs text-sky-700 mb-3">Enviando capa…</p>
+              )}
 
               <div className="grid grid-cols-2 gap-3 mb-3">
                 <div>
@@ -225,6 +296,7 @@ function ContentEditor() {
         <div className="flex flex-col gap-4">
           {areas.map((area) => {
             const override = content.areas[area.slug] ?? { titulo: area.titulo, resumo: area.resumo }
+            const imagemAtual = override.imagem ?? area.imagem
             return (
               <div key={area.slug} className="rounded-lg border border-gray-200 bg-white p-4">
                 <p className="text-xs font-medium text-gray-400 mb-2">{area.slug}</p>
@@ -236,16 +308,45 @@ function ContentEditor() {
                 />
                 <label className="block text-xs font-medium text-gray-500 mb-1">Descrição curta</label>
                 <textarea
-                  className="w-full rounded-lg border border-gray-300 p-2 text-sm"
+                  className="w-full rounded-lg border border-gray-300 p-2 text-sm mb-3"
                   rows={2}
                   value={override.resumo}
                   onChange={(e) => updateArea(area.slug, 'resumo', e.target.value)}
                 />
+                <label className="block text-xs font-medium text-gray-500 mb-1">Imagem do card</label>
+                <div className="flex items-center gap-3">
+                  {imagemAtual && (
+                    <img
+                      src={imagemAtual}
+                      alt=""
+                      className="h-14 w-20 object-cover rounded-md border border-gray-200 shrink-0"
+                    />
+                  )}
+                  <input
+                    type="file"
+                    accept="image/*"
+                    disabled={enviando === `area-${area.slug}`}
+                    onChange={(e) => {
+                      const file = e.target.files?.[0]
+                      if (!file) return
+                      handleUpload(`area-${area.slug}`, 'areas', file, (url) =>
+                        updateArea(area.slug, 'imagem', url)
+                      )
+                      e.target.value = ''
+                    }}
+                    className="w-full rounded-lg border border-gray-300 p-2 text-xs bg-gray-50"
+                  />
+                </div>
+                {enviando === `area-${area.slug}` && (
+                  <p className="text-xs text-violet-700 mt-2">Enviando imagem…</p>
+                )}
               </div>
             )
           })}
         </div>
       </section>
+
+      {uploadError && <p className="mb-3 text-sm text-red-700">{uploadError}</p>}
 
       <button
         type="button"
