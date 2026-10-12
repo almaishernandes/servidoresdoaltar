@@ -4,7 +4,6 @@ import { Footer } from './components/Footer'
 import { Home } from './pages/Home'
 import { AreaDetail } from './pages/AreaDetail'
 import { Sobre } from './pages/Sobre'
-import { EventosIgrejaCatolica } from './pages/EventosIgrejaCatolica'
 
 function App() {
   return (
@@ -14,7 +13,6 @@ function App() {
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/areas/eventos-igreja-catolica" element={<EventosIgrejaCatolica />} />
             <Route path="/areas/:slug" element={<AreaDetail />} />
             <Route path="/sobre" element={<Sobre />} />
           </Routes>

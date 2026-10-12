@@ -59,15 +59,4 @@ export const areas: Area[] = [
     externalUrl: 'https://altares.servidoresnoaltar.com.br',
     status: 'ativo',
   },
-  {
-    slug: 'eventos-igreja-catolica',
-    titulo: 'A Igreja Católica',
-    resumo: 'Notícias, liturgia diária, rádios, TVs e cursos de formação católica.',
-    icone: '🌍',
-    cor: '#0f4c81',
-    modelos: [],
-    descricao:
-      'Acompanhe as principais decisões do Vaticano, as celebrações das paróquias locais e as ações sociais da Igreja Católica. Um espaço dedicado à fé, à oração e ao fortalecimento da comunidade cristã no dia a dia.',
-    status: 'ativo',
-  },
 ]
