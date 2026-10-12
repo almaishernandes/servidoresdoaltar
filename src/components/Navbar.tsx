@@ -7,7 +7,8 @@ export function Navbar() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-2 font-semibold text-lg shrink-0">
           <span className="text-2xl">✝️</span>
-          <span className="hidden sm:inline">Servidores do Altar</span>
+          <span className="hidden sm:inline">Servidores no Altar</span>
+          <span className="hidden lg:inline text-sm font-normal text-amber-100">— Acólitos e Coroinhas</span>
         </Link>
         <RadioPlayer />
       </div>
