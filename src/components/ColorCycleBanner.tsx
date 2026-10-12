@@ -14,9 +14,14 @@ export function ColorCycleBanner({ text, intervalMs = 2500 }: { text: string; in
 
   return (
     <section
-      className="flex items-center justify-center py-4 sm:py-6 px-2"
+      className="flex flex-col items-center justify-center gap-3 py-4 sm:py-6 px-2"
       style={{ backgroundColor: '#b8860b' }}
     >
+      <img
+        src="/logo.png"
+        alt="Servidores no Altar"
+        className="h-16 w-16 sm:h-24 sm:w-24 rounded-full shadow-lg"
+      />
       <h2
         className="text-2xl sm:text-5xl font-extrabold uppercase tracking-wide text-center drop-shadow-md transition-colors duration-700"
         style={{ color: colors[colorIndex] }}
