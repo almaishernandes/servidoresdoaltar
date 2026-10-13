@@ -4,17 +4,20 @@ import type { Area } from '../data/areas'
 export function AreaStrip({ area }: { area: Area }) {
   const content = (
     <div
-      className="group relative flex items-center justify-center text-center text-white px-2 sm:px-3 py-4 sm:py-6 min-h-[110px] sm:min-h-[150px] overflow-hidden"
-      style={{
-        backgroundColor: area.cor,
-        backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.65)), url(${area.imagem})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
+      className="group relative flex flex-col items-center justify-center text-center text-white px-2 sm:px-3 py-4 sm:py-6 min-h-[110px] sm:min-h-[150px] overflow-hidden"
+      style={{ backgroundColor: area.cor }}
     >
       <div className="relative max-w-2xl">
+        {area.imagem ? (
+          <img
+            src={area.imagem}
+            alt=""
+            className="mx-auto mb-1.5 h-10 w-10 sm:h-14 sm:w-14 rounded-full object-cover shadow-md ring-2 ring-white/70"
+          />
+        ) : (
+          <span className="block text-lg sm:text-2xl mb-1.5 drop-shadow-sm">{area.icone}</span>
+        )}
         <div className="flex items-center justify-center gap-1.5 mb-1.5">
-          <span className="text-lg sm:text-2xl drop-shadow-sm">{area.icone}</span>
           {area.status === 'em-breve' ? (
             <span className="text-[10px] sm:text-xs font-medium bg-white/15 backdrop-blur px-1.5 py-0.5 rounded-full">
               Em breve
