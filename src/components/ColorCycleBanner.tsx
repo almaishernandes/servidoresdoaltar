@@ -20,7 +20,7 @@ export function ColorCycleBanner({ text, intervalMs = 2500 }: { text: string; in
       <img
         src="/logo.png"
         alt="Servidores no Altar"
-        className="h-16 w-16 sm:h-24 sm:w-24 rounded-full shadow-lg"
+        className="h-20 sm:h-32 w-auto rounded-lg shadow-lg"
       />
       <h2
         className="text-2xl sm:text-5xl font-extrabold uppercase tracking-wide text-center drop-shadow-md transition-colors duration-700"
