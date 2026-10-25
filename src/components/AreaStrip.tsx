@@ -4,7 +4,7 @@ import type { Area } from '../data/areas'
 export function AreaStrip({ area }: { area: Area }) {
   const content = (
     <div
-      className="group relative flex flex-col text-center text-white h-[220px] sm:h-[280px] overflow-hidden"
+      className="group relative flex flex-col text-center text-white h-[220px] sm:h-[280px] overflow-hidden border-2 border-[#1c0309]"
       style={{ backgroundColor: area.cor }}
     >
       <div className="h-1/2 shrink-0 overflow-hidden bg-black/20">
