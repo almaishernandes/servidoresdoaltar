@@ -5,6 +5,8 @@ export interface Area {
   icone: string
   cor: string
   imagem: string
+  /** Posição do recorte da imagem no card (padrão: 'center'). */
+  imagemPosicao?: 'center' | 'top' | 'bottom'
   modelos: string[]
   descricao: string
   externalUrl?: string
@@ -58,6 +60,7 @@ export const areas: Area[] = [
     icone: '🎵',
     cor: '#d97706',
     imagem: '/areas/altares.png',
+    imagemPosicao: 'top',
     modelos: [],
     descricao:
       'Altares é a plataforma de streaming sob demanda dedicada à música sacra: antífonas, horas litúrgicas, polifonia sacra, missa tridentina e canto gregoriano — com player persistente, letras em latim e português, e playlists pessoais.',

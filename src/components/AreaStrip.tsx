@@ -9,7 +9,12 @@ export function AreaStrip({ area }: { area: Area }) {
     >
       <div className="h-1/2 shrink-0 overflow-hidden bg-black/20">
         {area.imagem ? (
-          <img src={area.imagem} alt="" className="h-full w-full object-cover" />
+          <img
+            src={area.imagem}
+            alt=""
+            className="h-full w-full object-cover"
+            style={{ objectPosition: area.imagemPosicao ?? 'center' }}
+          />
         ) : (
           <div className="flex h-full w-full items-center justify-center text-4xl sm:text-5xl">
             {area.icone}
