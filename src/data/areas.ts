@@ -57,7 +57,7 @@ export const areas: Area[] = [
     resumo: 'Streaming de música sacra, litúrgica e canto gregoriano.',
     icone: '🎵',
     cor: '#d97706',
-    imagem: '/areas/altares.jpg',
+    imagem: '/areas/altares.png',
     modelos: [],
     descricao:
       'Altares é a plataforma de streaming sob demanda dedicada à música sacra: antífonas, horas litúrgicas, polifonia sacra, missa tridentina e canto gregoriano — com player persistente, letras em latim e português, e playlists pessoais.',
