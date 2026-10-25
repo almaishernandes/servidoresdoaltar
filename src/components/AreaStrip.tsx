@@ -24,10 +24,7 @@ export function AreaStrip({ area }: { area: Area }) {
 
       <div className="flex flex-1 flex-col items-center justify-center px-2 sm:px-3 py-2">
         <h3 className="text-xs sm:text-base font-bold leading-tight mb-1 drop-shadow-md">{area.titulo}</h3>
-        <p className="hidden sm:block text-[11px] sm:text-xs text-white/85 mb-1.5 line-clamp-2">{area.resumo}</p>
-        <span className="inline-block text-[10px] sm:text-xs font-semibold border-b-2 border-white/70 group-hover:border-white transition-colors">
-          {area.status === 'ativo' ? 'Acessar →' : 'Saiba mais →'}
-        </span>
+        <p className="hidden sm:block text-[11px] sm:text-xs text-white/85 line-clamp-2">{area.resumo}</p>
       </div>
     </div>
   )
