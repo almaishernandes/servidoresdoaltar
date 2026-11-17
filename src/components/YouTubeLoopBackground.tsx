@@ -12,10 +12,13 @@ export function YouTubeLoopBackground({ videoId }: { videoId: string }) {
     const el = containerRef.current
     if (!el) return
 
-    const observer = new ResizeObserver(([entry]) => {
-      const { width, height } = entry.contentRect
-      setSize({ width, height })
-    })
+    function medir() {
+      if (!el) return
+      setSize({ width: el.clientWidth, height: el.clientHeight })
+    }
+
+    medir()
+    const observer = new ResizeObserver(medir)
     observer.observe(el)
     return () => observer.disconnect()
   }, [])
@@ -27,14 +30,21 @@ export function YouTubeLoopBackground({ videoId }: { videoId: string }) {
 
   return (
     <div ref={containerRef} className="relative h-full w-full overflow-hidden">
-      {size.width > 0 && (
+      {size.width > 0 && size.height > 0 && (
         <iframe
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-          style={{ width: iframeWidth, height: iframeHeight }}
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            width: `${iframeWidth}px`,
+            height: `${iframeHeight}px`,
+            transform: 'translate(-50%, -50%)',
+            pointerEvents: 'none',
+            border: 0,
+          }}
           src={src}
           title="Vídeo de fundo"
           allow="autoplay; encrypted-media"
-          frameBorder={0}
         />
       )}
     </div>
