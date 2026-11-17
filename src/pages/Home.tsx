@@ -24,8 +24,8 @@ export function Home() {
 
       <QuoteCarousel />
 
-      <section id="projetos" className="bg-[#1c0309] py-2">
-        <div className="grid grid-cols-2 sm:grid-cols-4 max-w-5xl mx-auto">
+      <section id="projetos" className="bg-[#1c0309] py-4 sm:py-6">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-5 max-w-5xl mx-auto px-3 sm:px-4">
           {areasComTexto.map((area) => (
             <AreaStrip key={area.slug} area={area} />
           ))}
