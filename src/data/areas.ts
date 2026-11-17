@@ -20,7 +20,7 @@ export const areas: Area[] = [
     resumo: 'Plataforma de gestão para grupos de servidores do altar.',
     icone: '🗂️',
     cor: '#8a1c2e',
-    imagem: '/areas/zelusdomus.png',
+    imagem: '/areas/zelusdomus.jpg',
     modelos: [],
     descricao:
       'O ZelusDomus é a plataforma de gestão dos Servidores do Altar: cadastro de coroinhas, acólitos, monitores, cerimoniários e coordenadores, escalas de serviço, atas de reunião, livro caixa e formação — tudo em um só lugar.',
@@ -46,7 +46,7 @@ export const areas: Area[] = [
     resumo: 'Livros, guias e materiais de consulta para quem serve ao altar.',
     icone: '📚',
     cor: '#1e5a4a',
-    imagem: '/areas/biblioteca.png',
+    imagem: '/areas/biblioteca.jpg',
     modelos: [],
     descricao:
       'Biblioteca de livros e guias para coroinhas, acólitos, monitores, cerimoniários e coordenadores — incluindo o guia de uso do ZelusDomus e futuros materiais de formação litúrgica.',
