@@ -4,7 +4,7 @@ export function YouTubeLoopBackground({ videoId }: { videoId: string }) {
   return (
     <div className="relative h-full w-full overflow-hidden">
       <iframe
-        className="absolute top-1/2 left-1/2 w-[300%] h-[300%] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+        className="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.78vh] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
         src={src}
         title="Vídeo de fundo"
         allow="autoplay; encrypted-media"
